@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>||Ai Image Generator||</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Ai Image Generator</h1>
+        <p>Write your prompt here to generate images with power of Ai.</p>
+        <form class="gen-form">
+            <input type="text" id="user-prompt" placeholder="Type your prompt here..." autocomplete="off">
+            <button type="button" id="generate">Generate</button>
+        </form>
+
+        <div class="result">
+            <div id="loading">Generating...</div>
+            <div id="image-grid"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Obsługa zdarzenia naciśnięcia klawisza Enter
+        document.getElementById("user-prompt").addEventListener("keypress", function(event) {
+            // Sprawdzenie, czy naciśnięto klawisz Enter
+            if (event.key === "Enter") {
+                // Wygenerowanie obrazów na podstawie wprowadzonego tekstu
+                const input = document.getElementById("user-prompt").value;
+                generateImages(input);
+                // Zapobieżenie domyślnej akcji klawisza Enter (np. wysłanie formularza)
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
